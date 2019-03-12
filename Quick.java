@@ -59,5 +59,6 @@ public class Quick {
         pivot = partition(data, pivot, data.length - 1);
       }
     }
+    return pivot;
   }
 }
