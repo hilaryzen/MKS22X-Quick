@@ -18,30 +18,34 @@ public class Quick {
     pivotIndex = start;
     start += 1;
 
-    while (start != end) {
-      if (data[start] > pivot) {
+    //lo and hi move toward each other to find pivot
+    int lo = start;
+    int hi = end;
+
+    while (lo != hi) {
+      if (data[lo] > pivot) {
         //If start is on wrong side, switch with end
-        int n = data[start];
-        data[start] = data[end];
-        data[end] = n;
+        int n = data[lo];
+        data[lo] = data[hi];
+        data[hi] = n;
         //End moves down one
-        end -= 1;
+        hi -= 1;
       } else {
         //If start is on right side, move start up one
-        start += 1;
+        lo += 1;
       }
       //System.out.println(Arrays.toString(data));
     }
 
     //Placing pivot in correct position
-    if (data[start] > pivot) {
-      data[pivotIndex] = data[start - 1];
-      data[start - 1] = pivot;
-      pivotIndex = start - 1;
+    if (data[lo] > pivot) {
+      data[pivotIndex] = data[lo - 1];
+      data[lo - 1] = pivot;
+      pivotIndex = lo - 1;
     } else {
-      data[pivotIndex] = data[start];
-      data[start] = pivot;
-      pivotIndex = start;
+      data[pivotIndex] = data[lo];
+      data[lo] = pivot;
+      pivotIndex = lo;
     }
 
     //System.out.println(Arrays.toString(data));
