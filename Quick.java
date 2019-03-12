@@ -23,7 +23,8 @@ public class Quick {
     int hi = end;
 
     while (lo != hi) {
-      if (data[lo] > pivot) {
+      //Second and statement creates 50% chance that a duplicate will be switched
+      if (data[lo] > pivot || (data[lo] == pivot && (int)(Math.random() * 2) % 2 == 0)) {
         //If start is on wrong side, switch with end
         int n = data[lo];
         data[lo] = data[hi];
