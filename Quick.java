@@ -48,4 +48,16 @@ public class Quick {
     //System.out.println(testPartition(data, pivotIndex));
     return pivotIndex;
   }
+
+  //Return the kth smallest value of the array
+  public static int quickselect(int[] data, int k) {
+    int pivot = partition(data, 0, data.length - 1);
+    while (k != pivot) {
+      if (k < pivot) {
+        pivot = partition(data, 0, pivot - 1);
+      } else {
+        pivot = partition(data, pivot, data.length - 1);
+      }
+    }
+  }
 }
