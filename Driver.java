@@ -22,7 +22,20 @@ public class Driver {
         System.out.println("Select failed: selected = " + selected + ", data[k] = " + data[k]);
       }
     } else if (args[1] == "sort") {
+      int[] data2 = new int[data.length];
+      for (int i = 0; i < data.length; i++) {
+        data2[i] = data[i];
+      }
       quicksort(data, 0, data.length - 1);
+      Arrays.sort(data2);
+      for (int i = 0; i < data.length; i++) {
+        if (data[i] != data2[i]) {
+          System.out.println("Sort failed: i = " + i + ", data[i] = " + data[i] + ", data2[i] = " + data2[i]);
+        }
+        if (i == data.length - 1) {
+          System.out.println("Sort passed");
+        }
+      }
     }
   }
 }
