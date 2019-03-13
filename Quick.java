@@ -71,4 +71,13 @@ public class Quick {
     }
     return data[pivot];
   }
+
+  //Sorts the entire array
+  public static void quicksort(int[] data, int start, int end) {
+    int pivot = partition(data, start, end);
+    while (start < end) {
+      quicksort(data, start, pivot - 1);
+      quicksort(data, pivot + 1, end);
+    }
+  }
 }
