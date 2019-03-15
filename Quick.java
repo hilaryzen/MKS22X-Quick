@@ -68,7 +68,7 @@ public class Quick {
     //Picking the pivot
     int lt = median(data, start, (start + end) / 2, end);
     int pivot = data[lt];
-    System.out.println("Pivot: " + pivot);
+    //System.out.println("Pivot: " + pivot);
 
     //Switching pivot to the beginning
     if (lt != start) {
@@ -97,8 +97,8 @@ public class Quick {
         data[gt] = value;
         gt -= 1; //gt moves down one
       }
-      System.out.println(Arrays.toString(data));
-      System.out.println("i: " + i + ", lt: " + lt + ", gt: " + gt);
+      //System.out.println(Arrays.toString(data));
+      //System.out.println("i: " + i + ", lt: " + lt + ", gt: " + gt);
     }
 
     //System.out.println(Arrays.toString(data));
@@ -156,8 +156,16 @@ public class Quick {
     if (start >= end || start < 0) {
       return;
     }
+    //Implementation of partition
+    /*
     int pivot = partition(data, start, end);
     quicksortH(data, start, pivot - 1);
     quicksortH(data, pivot + 1, end);
+    */
+
+    //Implementation of partitionDutch
+    int[] pivots = partitionDutch(data, start, end);
+    quicksortH(data, start, pivots[0] - 1);
+    quicksortH(data, pivots[1] + 1, end);
   }
 }
