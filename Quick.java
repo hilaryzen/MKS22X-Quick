@@ -77,6 +77,25 @@ public class Quick {
     int i = lt + 1;
     int gt = end;
 
+    while (i != gt) {
+      if (data[i] < pivot) {
+        //Switches i with lt and increases both by 1
+        data[lt] = data[i];
+        data[i] = pivot;
+        lt += 1;
+        i += 1;
+      } else if (data[i] == pivot) {
+        //Continues onto next element
+        i += 1;
+      } else {
+        //Switches i and gt
+        int value = data[i];
+        data[i] = data[gt];
+        data[gt] = value;
+        gt -= 1; //gt moves down one
+      }
+    }
+
     int[] ans = {1,0};
     return ans;
   }
