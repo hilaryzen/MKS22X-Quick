@@ -80,7 +80,7 @@ public class Quick {
     int i = lt + 1;
     int gt = end;
 
-    while (i != gt) {
+    while (i <= gt) {
       if (data[i] < pivot) {
         //Switches i with lt and increases both by 1
         data[lt] = data[i];
@@ -97,9 +97,11 @@ public class Quick {
         data[gt] = value;
         gt -= 1; //gt moves down one
       }
+      System.out.println(Arrays.toString(data));
+      System.out.println("i: " + i + ", lt: " + lt + ", gt: " + gt);
     }
 
-    System.out.println(Arrays.toString(data));
+    //System.out.println(Arrays.toString(data));
     int[] ans = {lt,gt};
     return ans;
   }
