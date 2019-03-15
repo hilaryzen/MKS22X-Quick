@@ -32,7 +32,7 @@ public class Driver {
       for (int i = 0; i < data.length; i++) {
         data2[i] = data[i];
       }
-      Quick.quicksort(data, 0, data.length - 1);
+      Quick.quicksort(data);
       Arrays.sort(data2);
 
       System.out.println(Arrays.toString(data));
@@ -50,11 +50,17 @@ public class Driver {
     }
 
     System.out.println(" ");
+    /*
     System.out.println(Quick.median(2, 4, 5));
     System.out.println(Quick.median(6, 5, 4));
     System.out.println(Quick.median(2, -4, 5));
     System.out.println(Quick.median(5, -4, 5));
     System.out.println(Quick.median(2, -4, -4));
     System.out.println(Quick.median(2, 2, 5));
+    */
+
+    int[] example = {2, 3, 7, 7, 4, 8, 8, 2, 9, 2, 3};
+    System.out.println("Original array: " + Arrays.toString(example));
+    System.out.println(Arrays.toString(Quick.partitionDutch(example, 0, example.length - 1)));
   }
 }

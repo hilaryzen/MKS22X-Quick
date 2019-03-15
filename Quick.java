@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Quick {
   /*Modify the array such that:
   *1. Only the indices from start to end inclusive are considered in range
@@ -57,7 +59,7 @@ public class Quick {
   }
 
   //Creates a third section for values equal to the pivot to save time
-  private int[] partitionDutch(int[] data, int start, int end) {
+  public static int[] partitionDutch(int[] data, int start, int end) {
     //Array will be separated into 3 sections with lt, i, gt
     //lt tracks the pivot, i is the element being considered
     //Values from start to lt are less than pivot, from lt to i are equal to pivot
@@ -66,12 +68,13 @@ public class Quick {
     //Picking the pivot
     int lt = median(data, start, (start + end) / 2, end);
     int pivot = data[lt];
+    System.out.println("Pivot: " + pivot);
 
     //Switching pivot to the beginning
-    if (pivotIndex != start) {
-      data[pivotIndex] = data[start];
+    if (lt != start) {
+      data[lt] = data[start];
       data[start] = pivot;
-      pivotIndex = start;
+      lt = start;
     }
 
     int i = lt + 1;
@@ -96,7 +99,8 @@ public class Quick {
       }
     }
 
-    int[] ans = {1,0};
+    System.out.println(Arrays.toString(data));
+    int[] ans = {lt,gt};
     return ans;
   }
 
