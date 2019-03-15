@@ -55,6 +55,13 @@ public class Quick {
     return pivotIndex;
   }
 
+  //Creates a third section for values equal to the pivot to save time
+  private int[] partitionDutch(int[] data, int start, int end) {
+    //Picking the pivot
+    int pivotIndex = median(data, start, (start + end) / 2, end);
+    int pivot = data[pivotIndex];
+  }
+
   public static int median(int[] data, int a, int b, int c) {
     int dataA = data[a];
     int dataB = data[b];
