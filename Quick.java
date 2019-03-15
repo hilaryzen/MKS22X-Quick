@@ -67,6 +67,16 @@ public class Quick {
     int lt = median(data, start, (start + end) / 2, end);
     int pivot = data[lt];
 
+    //Switching pivot to the beginning
+    if (pivotIndex != start) {
+      data[pivotIndex] = data[start];
+      data[start] = pivot;
+      pivotIndex = start;
+    }
+
+    int i = lt + 1;
+    int gt = end;
+
     int[] ans = {1,0};
     return ans;
   }
