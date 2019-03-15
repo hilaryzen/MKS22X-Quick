@@ -14,13 +14,14 @@ public class Quick {
     int pivot = data[pivotIndex];
     //System.out.println("Pivot: " + pivot);
     //Switching pivot to the beginning
-    data[pivotIndex] = data[start];
-    data[start] = pivot;
-    pivotIndex = start;
-    start += 1;
+    if (pivotIndex != start) {
+      data[pivotIndex] = data[start];
+      data[start] = pivot;
+      pivotIndex = start;
+    }
 
     //lo and hi move toward each other to find pivot
-    int lo = start;
+    int lo = start + 1;
     int hi = end;
 
     while (lo != hi) {
@@ -57,9 +58,17 @@ public class Quick {
 
   //Creates a third section for values equal to the pivot to save time
   private int[] partitionDutch(int[] data, int start, int end) {
+    //Array will be separated into 3 sections with lt, i, gt
+    //lt tracks the pivot, i is the element being considered
+    //Values from start to lt are less than pivot, from lt to i are equal to pivot
+    //Values from i to gt are unknown, from gt to end are higher
+
     //Picking the pivot
-    int pivotIndex = median(data, start, (start + end) / 2, end);
-    int pivot = data[pivotIndex];
+    int lt = median(data, start, (start + end) / 2, end);
+    int pivot = data[lt];
+
+    int[] ans = {1,0};
+    return ans;
   }
 
   public static int median(int[] data, int a, int b, int c) {
