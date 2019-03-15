@@ -8,9 +8,9 @@ public class Driver {
     }
     //System.out.println(Arrays.toString(data));
 
-    //if (args[1] == "select") {
+    if (args[1].equals("select")) {
 
-    /*
+
       //int k = 0;
       int k = (int)(Math.random() * data.length);
       System.out.println("k = " + k);
@@ -23,9 +23,9 @@ public class Driver {
       } else {
         System.out.println("Select failed: selected = " + selected + ", data[k] = " + data[k]);
       }
-    */
 
-    //} else if (args[1] == "sort") {
+
+    } else {
 
       //Making second copy of array
       int[] data2 = new int[data.length];
@@ -47,6 +47,14 @@ public class Driver {
         }
       }
 
-    //}
+    }
+
+    System.out.println(" ");
+    System.out.println(Quick.median(2, 4, 5));
+    System.out.println(Quick.median(6, 5, 4));
+    System.out.println(Quick.median(2, -4, 5));
+    System.out.println(Quick.median(5, -4, 5));
+    System.out.println(Quick.median(2, -4, -4));
+    System.out.println(Quick.median(2, 2, 5));
   }
 }

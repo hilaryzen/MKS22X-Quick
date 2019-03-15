@@ -54,6 +54,26 @@ public class Quick {
     return pivotIndex;
   }
 
+  public static int median(int a, int b, int c) {
+    if (a < b) {
+      if (a <= c && c <= b) {
+        return c;
+      } else if (c < a) {
+        return a;
+      } else {
+        return b;
+      }
+    } else {
+      if (b <= c && c <= a) {
+        return c;
+      } else if (c < b) {
+        return b;
+      } else {
+        return a;
+      }
+    }
+  }
+
   //Return the kth smallest value of the array
   public static int quickselect(int[] data, int k) {
     int start = 0;
