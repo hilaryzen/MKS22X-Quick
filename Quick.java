@@ -9,7 +9,8 @@ public class Quick {
   */
   public static int partition(int[] data, int start, int end) {
     //Picking the pivot
-    int pivotIndex = (int)(Math.random() * (end - start)) + start;
+    //int pivotIndex = (int)(Math.random() * (end - start)) + start;
+    int pivotIndex = median(data, start, (start + end) / 2, end);
     int pivot = data[pivotIndex];
     //System.out.println("Pivot: " + pivot);
     //Switching pivot to the beginning
@@ -54,19 +55,22 @@ public class Quick {
     return pivotIndex;
   }
 
-  public static int median(int a, int b, int c) {
-    if (a < b) {
-      if (a <= c && c <= b) {
+  public static int median(int[] data, int a, int b, int c) {
+    int dataA = data[a];
+    int dataB = data[b];
+    int dataC = data[c];
+    if (dataA < dataB) {
+      if (dataA <= dataC && dataC <= dataB) {
         return c;
-      } else if (c < a) {
+      } else if (dataC < dataA) {
         return a;
       } else {
         return b;
       }
     } else {
-      if (b <= c && c <= a) {
+      if (dataB <= dataC && dataC <= dataA) {
         return c;
-      } else if (c < b) {
+      } else if (dataC < dataB) {
         return b;
       } else {
         return a;
