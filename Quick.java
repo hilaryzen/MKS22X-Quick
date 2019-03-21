@@ -178,8 +178,12 @@ public class Quick {
     */
 
     //Implementation of partitionDutch
-    int[] pivots = partitionDutch(data, start, end);
-    quicksortH(data, start, pivots[0] - 1);
-    quicksortH(data, pivots[1] + 1, end);
+    if (end - start < 20) {
+      insertion(data, start, end);
+    } else {
+      int[] pivots = partitionDutch(data, start, end);
+      quicksortH(data, start, pivots[0] - 1);
+      quicksortH(data, pivots[1] + 1, end);
+    }
   }
 }
