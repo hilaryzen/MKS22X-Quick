@@ -178,7 +178,7 @@ public class Quick {
     */
 
     //Implementation of partitionDutch
-    if (end - start < 20) {
+    if (end - start < 50) {
       insertion(data, start, end);
     } else {
       int[] pivots = partitionDutch(data, start, end);
