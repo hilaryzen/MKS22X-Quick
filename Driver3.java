@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Driver2 {
+public class Driver3 {
 
  //Sort testing code
   private static final int INCREASE = 0;
@@ -61,7 +61,7 @@ public class Driver2 {
 
     int [] start = makeArray(size,type);
     int [] result = Arrays.copyOf(start,start.length);
-    
+
     Quick.quicksort(start);
     Arrays.sort(result);
 
